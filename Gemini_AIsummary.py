@@ -3,14 +3,14 @@ from google import genai
 from google.genai import types
 
 # Inicijalizacija klijenta
-client = genai.Client(api_key=os.environ.get("GOOGLE_API_KEY"))
+client = genai.Client(api_key="AIzaSyDWllN6lo49dDa8JQWwzcPcL82NvrApVRo")
 
 try:
     # Koristimo 'gemini-1.5-flash' jer je najstabilniji za besplatne ključeve
     # Maknuli smo 'models/' prefiks jer ga novi SDK sam dodaje
     response = client.models.generate_content(
-        model="gemini-2.0-flash", 
-        contents="Napravi kratki testni sažetak: 'Danas je u Zagrebu sunčano.'"
+        model="gemini-2.5-flash", 
+        contents="Odgovori mi sa 'Bok!'"
     )
     
     if response.text:
