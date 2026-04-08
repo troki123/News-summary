@@ -3,7 +3,7 @@ from google import genai
 from google.genai import types
 
 # Inicijalizacija klijenta
-client = genai.Client(api_key="AIzaSyDWllN6lo49dDa8JQWwzcPcL82NvrApVRo")
+client = genai.Client(api_key="API_KEY_HERE")
 
 try:
     # Koristimo 'gemini-1.5-flash' jer je najstabilniji za besplatne ključeve
