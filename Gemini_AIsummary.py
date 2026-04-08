@@ -2,10 +2,9 @@
 from google import genai
 from google.genai import types
 
-# Initializing client
-client = genai.Client(api_key="API_KEY_HERE")  # Replace API_KEY_HERE with your API key
+# Inicijalizacija klijenta
+client = genai.Client(api_key="API_KEY_HERE")
 # client = genai.Client(api_key=os.environ.get("GOOGLE_API_KEY"))
-
 
 try:
     response = client.models.generate_content(
@@ -22,5 +21,3 @@ try:
 
 except Exception as e:
     print(f"Greška: {e}")
-
-
