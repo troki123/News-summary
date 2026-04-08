@@ -1,16 +1,17 @@
-import os
+# import os  # Uncomment when using API_KEY as envirovental variable (on Windows)
 from google import genai
 from google.genai import types
 
-# Inicijalizacija klijenta
-client = genai.Client(api_key="AIzaSyDWllN6lo49dDa8JQWwzcPcL82NvrApVRo")
+# Initializing client
+client = genai.Client(api_key="API_KEY_HERE")  # Replace API_KEY_HERE with your API key
+# client = genai.Client(api_key=os.environ.get("GOOGLE_API_KEY"))
+
 
 try:
-    # Koristimo 'gemini-1.5-flash' jer je najstabilniji za besplatne ključeve
-    # Maknuli smo 'models/' prefiks jer ga novi SDK sam dodaje
     response = client.models.generate_content(
-        model="gemini-2.5-flash", 
-        contents="Odgovori mi sa 'Bok!'"
+        model="gemini-2.5-flash",   # If error 503, replace with "gemini-2.5-flash-lite"
+                                    # because a response object is guaranteed most times 
+        contents="Napravi mi cvijet, ali sa ASCII znakovima"
     )
     
     if response.text:
@@ -20,5 +21,6 @@ try:
         print("Odgovor je prazan (moguće zbog sigurnosnih filtera).")
 
 except Exception as e:
-    # Ako dobiješ 404 ovdje, problem je u postavkama prijateljevog projekta
     print(f"Greška: {e}")
+
+
