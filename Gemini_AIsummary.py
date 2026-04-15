@@ -3,8 +3,10 @@ from google import genai
 from google.genai import types
 
 client = genai.Client(api_key="API_KEY_HERE")
+# client = genai.Client(api_key=os.environ.get("GOOGLE_API_KEY"))
 
 prompt = "Napravi mi cvijet, ali sa ASCII znakovima"
+
 
 def generate_with_fallback(prompt):
     try:
